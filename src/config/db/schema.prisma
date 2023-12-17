@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String    @id @default(uuid())
+  email            String    @unique
+  firstname        String
+  lastname         String
+  password         String
+  createdAt        DateTime  @default(now())
+  updated_at       DateTime  @updatedAt
+  isActive         Boolean   @default(false)
+  isVerified       Boolean   @default(false)
+  verificationCode String    @default(uuid())
+  role             ROLE      @default(USER)
+  session          Session?
+}
+
+
+model Session {
+  id      String  @id @default(uuid())
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  String  @unique
+  isValid Boolean @default(true)
+}
+
+
+enum ROLE {
+  USER
+  ADMIN
+}
