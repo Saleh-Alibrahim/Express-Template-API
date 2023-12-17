@@ -6,8 +6,8 @@
     "scripts": {
         "build": "tsc",
         "dev": "nodemon src/app.ts",
-        "start": "node build/app.js",
-        "stage": "node build/app.js",
+        "start": "node dist/app.js",
+        "stage": "node dist/app.js",
         "check-types": "tsc --pretty --noEmit",
         "swagger": "node swagger-autogen.js",
         "prepare": "husky install"
@@ -43,7 +43,6 @@
     },
     "dependencies": {
         "@prisma/client": "^4.13.0-dev.23",
-        "@types/express-serve-static-core": "^4.17.41",
         "argon2": "^0.30.3",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",

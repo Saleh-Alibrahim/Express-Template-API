@@ -11,12 +11,6 @@ export enum HttpStatusCode {
 }
 
 
-
-
-
-
-
-
 export enum HttpErrorMessage {
     INTERNAL_SERVER = 'An Internal Server Error Occurred. Please Try Again Later.',
     NOT_FOUND = 'Requested Resource Not Found.',
